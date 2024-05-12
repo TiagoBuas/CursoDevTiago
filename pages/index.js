@@ -1,5 +1,11 @@
 function Home() {
-    return <h1>E os guerra vem por trás matando todo mundo, HAUURR eu sou um onça</h1>
+    return (
+        <div>
+            <h1>Para a melhor mãe do mundo:</h1>
+            <h1>Mamãe Joanacy Ilana Buás Calixto</h1>
+            <h1>Feliz dia das mães</h1>
+        </div>
+    );
 }
 
 export default Home;
