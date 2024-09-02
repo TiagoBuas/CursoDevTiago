@@ -15,5 +15,6 @@ Espaço pra anotação e outras coisas relacionadas ao estudo minhas msm:
 5 - configurar o prettier no .editorconfig, juntamente com os ignore do git e do próprio git, juntamente com o .editor config
 6 - Escolher a API dos testes automatizados e configurar o jest, juntamente com o primeiro teste de teste
 7 - configurar o docker e escolher o bando de dados
-8 - configurar o compose.yaml e o postgresql
+8 - configurar o compose.yaml e o postgresql juntamente com o .env.development
 9 - configurar o database.js, juntamento com o pg e criar uma ferramenta simples como o database.query direto para o banco de dados local
+10 - configurar o endpoint status junto com o jsconfig.json
