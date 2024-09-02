@@ -16,4 +16,4 @@ Espaço pra anotação e outras coisas relacionadas ao estudo minhas msm:
 6 - Escolher a API dos testes automatizados e configurar o jest, juntamente com o primeiro teste de teste
 7 - configurar o docker e escolher o bando de dados
 8 - configurar o compose.yaml e o postgresql
-9 - configurar o database.js, juntamento com o pg e criar uma ferramenta simles como o database.query direto para o banco de dados local
+9 - configurar o database.js, juntamento com o pg e criar uma ferramenta simples como o database.query direto para o banco de dados local
