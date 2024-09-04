@@ -29,7 +29,9 @@ export default {
 function getSSLValue(){
 
   if (process.env.POSTGRES_CA){{
-    POSTGRES_CA : process.env.POSTGRES_CA
+    return {
+      POSTGRES_CA : process.env.POSTGRES_CA
+    }
   }}
 
   process.env.NODE_ENV === 'development' ? false : true
