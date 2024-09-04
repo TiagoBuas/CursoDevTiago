@@ -7,15 +7,8 @@ async function query(queryObject) {
     user: process.env.POSTGRES_USER,
     database: process.env.POSTGRES_DATABASE,
     password: process.env.POSTGRES_PASSWORD,
-    ssl: process.env.NODE_ENV === 'development' ? false : true,
-  },
-    console.log({
-      host: process.env.POSTGRES_HOST,
-      port: process.env.POSTGRES_PORT,
-      user: process.env.POSTGRES_USER,
-      database: process.env.POSTGRES_DATABASE,
-      password: process.env.POSTGRES_PASSWORD,
-    })
+    ssl: getSSLValue(),
+  }
   );
   try {
     await client.connect();
@@ -31,3 +24,13 @@ async function query(queryObject) {
 export default {
   query: query,
 };
+
+
+function getSSLValue(){
+
+  if (process.env.POSTGRES_CA){{
+    POSTGRES_CA : process.env.POSTGRES_CA
+  }}
+
+  process.env.NODE_ENV === 'development' ? false : true
+}
