@@ -18,3 +18,7 @@ Espaço pra anotação e outras coisas relacionadas ao estudo minhas msm:
 8 - configurar o compose.yaml e o postgresql juntamente com o .env.development
 9 - configurar o database.js, juntamento com o pg e criar uma ferramenta simples como o database.query direto para o banco de dados local
 10 - configurar o endpoint status junto com o jsconfig.json
+11 - configurar o ambiente de produção para se conectar ao banco de dados criando uma instancia do 
+postgres em um provedor e configurando suas credencias nas variaveis de ambientes na vercel 
+12 - configurar o tratamento de ssl para conexões em produção e conexões diretas para ambientes locais
+alem de adicionar um possivel certificado autoassinado nas variaves da vercel
