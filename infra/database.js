@@ -8,15 +8,14 @@ async function query(queryObject) {
     database: process.env.POSTGRES_DATABASE,
     password: process.env.POSTGRES_PASSWORD,
     ssl: getSSLValue(),
-  }
-  );
+  });
   try {
     await client.connect();
     const response = await client.query(queryObject);
     return response;
   } catch (err) {
     console.error(err);
-    throw(err);
+    throw err;
   } finally {
     await client.end();
   }
@@ -25,14 +24,12 @@ export default {
   query: query,
 };
 
-
-function getSSLValue(){
-
-  if (process.env.POSTGRES_CA){
+function getSSLValue() {
+  if (process.env.POSTGRES_CA) {
     return {
       ca: process.env.POSTGRES_CA,
     };
-  };
+  }
 
-  return process.env.NODE_ENV === 'development' ? false : true
+  return process.env.NODE_ENV === "development" ? false : true;
 }

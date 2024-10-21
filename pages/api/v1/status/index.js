@@ -2,7 +2,6 @@
 import database from "infra/database.js";
 
 async function status(request, response) {
-
   const updateAt = new Date().toISOString();
 
   const postgresVersionResult = await database.query("SHOW server_version");
@@ -13,20 +12,20 @@ async function status(request, response) {
 
   const databaseName = process.env.POSTGRES_DATABASE;
   const currentUsedConnectionsResult = await database.query({
-    text : "SELECT count(*) FROM pg_stat_activity WHERE datname = $1",
-    values : [databaseName],
-    });
+    text: "SELECT count(*) FROM pg_stat_activity WHERE datname = $1",
+    values: [databaseName],
+  });
   const currentUsedConnections = currentUsedConnectionsResult.rows[0].count;
 
   response.status(200).json({
-    update_at : updateAt,
-    dependencies : {
-      database : {
-        postgres_VERSION : postgresVersion,
-        max_connections : parseInt(maxConnections),
-        current_used_connections : parseInt(currentUsedConnections)
-      }
-    }
+    update_at: updateAt,
+    dependencies: {
+      database: {
+        postgres_VERSION: postgresVersion,
+        max_connections: parseInt(maxConnections),
+        current_used_connections: parseInt(currentUsedConnections),
+      },
+    },
   });
 }
 
