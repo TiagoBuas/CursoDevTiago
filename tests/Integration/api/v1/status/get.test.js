@@ -30,6 +30,8 @@ test("response should be the maximun connections permited on the postgreSQL loca
 test("response should be the current used connections of the postgreSQL local DB", async () => {
   const response = await fetch("http://localhost:3000/api/v1/status");
   const responseBody = await response.json();
+  
+  console.log(process.env.NODE_ENV);
 
   expect(responseBody.dependencies.database.current_used_connections).toBe(1);
   expect(
