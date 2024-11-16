@@ -19,7 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "@next/env": "^15.0.3",
-    "dotenv": "^16.4.4",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
     "next": "^13.1.6",
     "node-pg-migrate": "^6.2.2",
     "pg": "^8.11.3",

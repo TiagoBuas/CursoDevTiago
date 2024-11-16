@@ -22,3 +22,6 @@ Espaço pra anotação e outras coisas relacionadas ao estudo minhas msm:
 postgres em um provedor e configurando suas credencias nas variaveis de ambientes na vercel
 12 - configurar o tratamento de ssl para conexões em produção e conexões diretas para ambientes locais
 alem de adicionar um possivel certificado autoassinado nas variaves da vercel
+13 - configurar as migrations atraves de um endpoint / migrations e fazer ele se conectar no banco de dados tanto no jest, fazendo as devidas alterações as variaves de ambientes em todos os modos do node 
+14 criar um client para se conectar ao banco de dados no database.js e refatorar o código de maneira que um método seja respoonsavel por iniciar uma conexão ao banco de dados
+
