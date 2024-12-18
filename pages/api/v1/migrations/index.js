@@ -5,7 +5,17 @@ import migrationRunner from "node-pg-migrate";
 
 export default async function status(request, response){
 
-  const dbConnected = await database.getNewClient();
+  const allowedMethod = ["GET", "POST"];
+  if (!allowedMethod.includes(request.method)){
+    return response.status(405).json({
+      error: "Method not allowed",
+    });
+  }
+
+let dbConnected;
+
+try {
+  dbConnected = await database.getNewClient();
 
   const defautMigrationOptions = {
     dbClient: dbConnected,
@@ -20,7 +30,6 @@ export default async function status(request, response){
   const pendingMigrations = await migrationRunner(
     defautMigrationOptions
   )
-  dbConnected.end();
   response.status(200).json(pendingMigrations);
 
   }
@@ -30,14 +39,16 @@ export default async function status(request, response){
       ...defautMigrationOptions,
       dryRun: false
   })
-  dbConnected.end();
   if (migratedMigrations.length > 0 ){
       response.status(201).json(migratedMigrations);
     } else {
       response.status(200).json(migratedMigrations);
       }
-  }
-
-    
-  
+  }   
+} catch (error){
+  console.error(error);
+  throw error;
+} finally {
+  dbConnected.end();
+}
 }
