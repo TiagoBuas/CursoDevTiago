@@ -1,6 +1,6 @@
 import { Client } from "pg";
 
-async function getNewClient(){
+async function getNewClient() {
   const client = new Client({
     host: process.env.POSTGRES_HOST,
     port: process.env.POSTGRES_PORT,
@@ -8,7 +8,7 @@ async function getNewClient(){
     database: process.env.POSTGRES_DATABASE,
     password: process.env.POSTGRES_PASSWORD,
     ssl: getSSLValue(),
-  }); 
+  });
   await client.connect();
   return client;
 }
@@ -27,9 +27,9 @@ async function query(queryObject) {
   }
 }
 
-async function clearDatabase(){
-  await query('drop schema public cascade; create schema public');
- }
+async function clearDatabase() {
+  await query("drop schema public cascade; create schema public");
+}
 
 function getSSLValue() {
   if (process.env.POSTGRES_CA) {
