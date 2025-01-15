@@ -1,5 +1,11 @@
 //Teste da ferramenta index do /api/v1/status
 
+import orchestrator from "tests/orchestrator.js"
+
+beforeAll( async () => {
+	await orchestrator.wait_for_all_services();
+});
+
 test("responde should be 200 from the request status", async () => {
   const response = await fetch("http://localhost:3000/api/v1/status");
   expect(response.status).toBe(200);
