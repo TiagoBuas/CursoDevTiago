@@ -4,8 +4,8 @@ import database from "infra/database.js";
 import orchestrator from "tests/orchestrator.js";
 
 beforeAll(async () => {
-	await database.clearDatabase();
-	await orchestrator.wait_for_all_services();
+  await database.clearDatabase();
+  await orchestrator.wait_for_all_services();
 });
 
 test("responde should be 200 from the request status", async () => {
@@ -14,5 +14,4 @@ test("responde should be 200 from the request status", async () => {
   const responseBody = await response.json();
   expect(Array.isArray(responseBody)).toBe(true);
   expect(responseBody.length).toBeGreaterThan(0);
-
 });
