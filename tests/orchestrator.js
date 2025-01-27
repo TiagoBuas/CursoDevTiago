@@ -21,6 +21,8 @@ async function wait_for_all_services() {
   }
 }
 
-export default {
+const orchestrator = {
   wait_for_all_services,
 };
+
+export default orchestrator;

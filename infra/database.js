@@ -41,8 +41,10 @@ function getSSLValue() {
   return process.env.NODE_ENV === "production";
 }
 
-export default {
+const database = {
   query,
   clearDatabase,
   getNewClient,
 };
+
+export default database;

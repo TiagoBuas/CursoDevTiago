@@ -16,7 +16,8 @@ test("responde should be 200 from the request status", async () => {
 test("date of the endpoint status should be the same from the status.js", async () => {
   const response = await fetch("http://localhost:3000/api/v1/status");
   const responseBody = await response.json();
-  new Date(responseBody.update_at).toISOString;
+  const parsedUpdateAt = new Date(responseBody.update_at).toISOString();
+  expect(responseBody.update_at).toBe(parsedUpdateAt);
 });
 
 test("response should be the version of the postgreSQL local DB", async () => {
