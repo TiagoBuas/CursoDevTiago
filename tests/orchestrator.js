@@ -22,7 +22,7 @@ async function wait_for_all_services() {
 }
 
 const orchestrator = {
-	wait_for_all_services,
+  wait_for_all_services,
 };
 
 export default orchestrator;
