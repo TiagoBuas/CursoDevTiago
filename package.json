@@ -4,8 +4,8 @@
   "description": "\"The init for the Curso.Dev\"",
   "main": "index.js",
   "scripts": {
-    "dev:preparations": "npm run services:up && npm run wait_for_db && npm run migrations:up && next dev",
-    "dev": "node infra/scripts/dev_encapsulated",
+    "dev": "node infra/scripts/run-dev-with-cleanup.js",
+    "dev:run": "npm run services:up && npm run services:wait:database && npm run migrations:up && next dev",
     "postdev": "npm run services:stop",
     "services:up": "docker compose -f infra/compose.yaml up -d",
     "services:stop": "docker compose -f infra/compose.yaml stop",
