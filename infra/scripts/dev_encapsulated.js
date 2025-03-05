@@ -7,14 +7,11 @@ const process_dev_encapsulated = spawn("npm", ["run", "dev:preparations"], {
 });
 
 process.on("SIGINT", () => {
-  console.log("");
-  process_dev_encapsulated.kill("SIGINT");
   process_dev_encapsulated.on("close", () => {
-    if (process_dev_encapsulated.code !== 0) {
-      const closing = spawn("npm", ["run", "postdev"], { stdio: "inherit" });
-      closing.on("close", () => {
-        console.log("\n 🔴 Dev environment and services stoped gracefully");
-      });
-    }
+    const closing = spawn("npm", ["run", "postdev"], { stdio: "inherit" });
+    closing.on("close", () => {
+      console.log("\n 🔴 Dev environment and services stoped gracefully");
+    });
   });
+  process_dev_encapsulated.kill("SIGINT");
 });
