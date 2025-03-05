@@ -6,7 +6,7 @@
   "scripts": {
     "dev:preparations": "npm run services:up && npm run wait_for_db && npm run migrations:up && next dev",
     "dev": "node infra/scripts/dev_encapsulated",
-    "postdev": "npm run services:stop",
+    "postdev": "npm run services:down",
     "services:up": "docker compose -f infra/compose.yaml up -d",
     "services:stop": "docker compose -f infra/compose.yaml stop",
     "services:down": "docker compose -f infra/compose.yaml down",

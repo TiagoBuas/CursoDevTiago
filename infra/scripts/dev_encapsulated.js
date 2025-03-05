@@ -5,7 +5,6 @@ const { spawn } = require("child_process");
 const process_dev_encapsulated = spawn("npm", ["run", "dev:preparations"], {
   stdio: "inherit",
 });
-
 process.on("SIGINT", () => {
   process_dev_encapsulated.on("close", () => {
     const closing = spawn("npm", ["run", "postdev"], { stdio: "inherit" });
