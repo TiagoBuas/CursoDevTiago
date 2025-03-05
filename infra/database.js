@@ -27,10 +27,6 @@ async function query(queryObject) {
   }
 }
 
-async function clearDatabase() {
-  await query("drop schema public cascade; create schema public");
-}
-
 function getSSLValue() {
   if (process.env.POSTGRES_CA) {
     return {
@@ -43,7 +39,6 @@ function getSSLValue() {
 
 const database = {
   query,
-  clearDatabase,
   getNewClient,
 };
 
